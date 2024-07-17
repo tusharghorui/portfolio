@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(49, 79, 199);
+    color: white;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+}
+.navmenu ul{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    font-size: 20px;
+}
+.navmenu a{
+    text-decoration: none;
+    color: white;
+    margin-right: 80px;
+}
+.navmenu a:hover{
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: 0.8s;
+    margin-right: 80px;
+}
+.home{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
