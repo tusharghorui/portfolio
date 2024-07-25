@@ -1,32 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="navbar">
-        <div class="navlogo">tusharghorui</div>
-        <div class="navmenu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="home">
-        <div class="left">
-            <h1>Hi, My name is Tushar <br> and  I am a <br> Web developer</h1>
-        </div>
-        <div class="right">
-            <img src="images/hi.png" height="500px">
-        </div>
-    </div>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<button onclick="topFunction()" id="myBtn" title="Go to top">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAANtJREFUSEvt1OENAiEMBeB3m+gmOok6iXES3URHcRTzTEkqKdDWxIsJ/Ls74EtfORasNJaVXEz4Z8n/ZdR3ABsA20xM2YqJ7gR8ZvAMrNFSbBiPwhaawiNwHS/7Ww935V5Yow8AFwB8x3ECcIj23APX6F6QAvOZlV4j+Ai2UFbJE61hpsDo3XgP5kblX+XGrKwMC+Y3jXf7PaqYG52lj/ogteCCW2s+DuIIbl1KPdh1kU3YFVPjVHvXvufNqL1x8Tc7yuSb3FzetV9FHUKsydkeTzicwIw6HFl2wQsb+jMfrP1d6AAAAABJRU5ErkJggg=="/>
+</button>
+<div class="navbar">
+<div class="navlogo"><a href="#">tusharghorui</a></div>
+<div class="navmenu">
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#project">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="navspace"></div>
+<div class="home">
+<div class="left">
+<h1>Hi, My name is <span style="color: cyan;">Tushar </span><br> and  I am a <br> <span style="color: aqua;" id="element"></span> <br>
+</h1>
+<br>
+<div class="links">
+<ul>
+<a target="_blank" href="https://www.facebook.com/profile.php?id=100079605694253" class="fb"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAQtJREFUSEvtVwEOgjAM7P1EXqK8RH+iP1FfIj+Rn1TOMCxjISwbAQlLSCCB3q696wpkoYWFcGU9wKp6EBFe2RaAyg82YKyqmg3xF6gGUNi4PWBVPYnIawZghiwt878HrkXkKSKsJe+dTu4me9kZD+pHsEDZsgP3AjqGswMD6HTSWvHSCPRo0u32kpVxBaA0LFlTAofWrMC0Ii25PeBvFwJA63SrrbF7JvOsdgrax89t03lvjauuOX08FdgXWrK4XJciGW7iYVRNRbuT7eydcsnANqu+nbarasd6Z7zX2Dpg1E704Dti5ooRV2FbbGjKjBlv2UC6ft0e/oN9TxpvI9gmvbqeP4kkGhEffwBbntoff9KhogAAAABJRU5ErkJggg=="/></a>
+<a target="_blank" href="https://www.instagram.com/tushargh0rui/" class="insta"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAeVJREFUSEvNlkFSwzAMRaWb0JNADwJDuQj0JG25CIUtW/aUk4i+jMQ4iZI6ZJF6ppNMY+vrf3/JVllo6EK4cv3AZnYjIvxGh6oeL83h+yhjM3sRkVsRuasJ5nNO/jyoKuvTkQKbGUC7gmEEi+dYHmWSzF+ram/dEPC3gyLbtlY+svEt4ZXESeKkqqtupj1gM2PB43nRUVXXEyRupprZvW/hRwG+V9VNGSsDDrarTKKxRBz01ecAhMRvGesM2BrXnZ2RgbiUKILpCPxz3hYYnczsQUQOvu7JQSHSk7sV3IMyMZXZXf6cJEQCjYvNjKSI+6Wqn2YWCmKyv1LrAmMGpOkBd0C3zpYcYA4YAyO2SsjMiEfc6cCFEgRvBXBDRcIw35TM5gLDAol77gzZi2posZ4LHCUGm/2A6dJtmguc7lOZgJuKBFuqzAVeTGpOJcqC0ZPbezuq9Mw3i7E7l5JBSgb7/O7vJBW1nZVTVR0Hs6yO+QZ41kDSGvaE0xY81LnSE8UDkQAOpnHwDvOmZQ64PW3BWa++6OAMYAA0tme8VzujcPC/jsVOiQWJqmMR+VjAc/JFoNiOaReBYmGA89ecq0+rd4cig5e9zrk75bIXiU6/7HWNUnu1ZV3t/ez6L/S1JVQ7bzHGv3u3RS5hajDeAAAAAElFTkSuQmCC"/></a>
+<a target="_blank" href="https://github.com/tusharghorui" class="github"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAdVJREFUSEvllmFOwzAMheObsJuwk8BOAjsJ4ySUk7CbmL4qjlzXTtwKaT+IhDbWNJ+fY7+EyoMGPYhbdoOZ+bmU8lQDxudUv9+J6J4VkgIzMwBvM0RDPQaCuGQCGIKZ+aOU8ppVUufdSinXXgAhuKoEFCqPDKT9HMFdcIX+HKE575w8eAT+UkqleLLKoRR/Mt9VvgEz83stJAkexXKr1YwC05WMOfhffvskoqnORfAysN9Yt40VOEgx9klUp7IfrLNKuQVbtQD9FfhGRBeJ3ILZSIIpnFIyzSRmRnGK0cjTprqBg/Rs9iYbhFMrq+xpMKpQF8ShNEtgToHh0VKo+KLBcCcYhh5uD2ZUBxlMg3cXllKM/bUm1LZulOoWYUalnpPeY7zE82wDSJ82NjBm1u63PKbZRaJ28lpgd2Uzs1cvq9bsGQg8VvpweMypvY2O0ZUAz6tFNVwGcCwkASD18OOlJRQMCsXH3XLQaV61k1pE2yZcC4u+KPim4BLHaP+QUHBRPRHRWd+zrFrnHavYtd3eDUTg11ktDL57kQu8OfT67p3LLLYc8MiAt4kOuHvAZC57unDCxQx42IJDsGkTmEA7U01lwzC+7U0jcrw0eK9ljub/P/AvaRP1H1Ij1RoAAAAASUVORK5CYII="/></a>
+<a target="_blank" href="https://www.linkedin.com/in/tushar-ghorui-a5a82b246/" class="linkedin"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAASJJREFUSEvtl+sNgkAQhGc60U6wE61EqUStRDvRTlaHHLogGsDlEeMl/jnifs7M3nISEy1OxMV8wGa2AKBP2CJ5rhd7UWxmFkZ8FrqSXPq6FbCZZQBOA4BVcuWVtwFfg6zvBD6Q3KTc9wDkSN/VHkzy4cg9+h2AbV9qF6tl8abMxcykeD0GWAzBjwn2jdpezfWFyMpX22esXJJqVZBiWX0AkKeSGjTazxVJakI9amrETuAlSdkNl7EgajTtZU1T6c0piAOXRgpU/kC3J3ekvFyxYOdE/RTUp2A42M92H4PyvwyiOGXpixeTLuX/B8dl/JNWt5lc/uKgK07RXOkd7p91sjpqTs/3JVE/e5GKH3NfRZtumdNcbyMlfqo1n38SYym+AapIHS4EDj1BAAAAAElFTkSuQmCC"/></a>
+
+</ul>
+</div>
+<a href="Tushar Ghorui Resume.pdf" download class="download-btn"><pre style="font-family: poppins;">Download CV </pre>
+<i class='bx bxs-download' style='color:#ffffff'></i>
+</a>
+</div>
+<div class="right">
+<img src="images/hi.png" height="500px">
+</div>
+</div>
+<div class="about" id="about">
+<div class="left-about">
+<img src="images/dp.jpg" id="img-about">
+</div>
+<div class="right-about">
+<h1>About<span style="color: cyan"> Me</span></h1>
+<p>My name is Tushar Ghorui, I am born and brought up in Howrah.I have completed my 10+2 from South End Centre EM School which is affiliated to CISCE board. Currently I am persuing B.Tech in Information Technology from JIS college of engineering,Kalyani</p><br><p>I want to be a software developer because I've worked hard to develop skills that are relevant to this industry and because this type of work brings me personal satisfaction. I've gained a lot of practical experience since graduating high school. I've become intimately familiar with several coding languages, participated in coding challenges and worked on personal coding projects. I'm excited to begin a career as a software developer and learn more about this line of work from industry professionals</p>
+</div>
+</div>
+<div class="knowmore">
+<div style="text-align: center;">
+<span class="dot" onclick="currentSlide(1)">Academics</span>
+<span class="dot" onclick="currentSlide(2)">Acheivements</span>
+<span class="dot" onclick="currentSlide(3)">Certifications</span>
+<span class="dot" onclick="currentSlide(4)">Internships</span>
+<span class="dot" onclick="currentSlide(5)">Hobbies</span>
+</div>
+<div class="slideshow-container">
+<div class="mySlides fade">
+<div class="numbertext">
+<ul>
+<li>
+<h3>B.Tech (Information Technology)</h3>
+<h4>JIS College of Engineering,<span style="color: cyan">Kalyani</span></h4>
+</li>
+<li>
+<h3>Intermediate(ISC)</h3>
+<h4>South End Centre E.M. High School,<span style="color: cyan">Howrah</span></h4>
+</li>
+<li>
+<h3>Matriculation(ICSE)</h3>
+<h4>South End Centre E.M. High School,<span style="color: cyan">Howrah</span></h4>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="mySlides fade">
+<div class="numbertext">
+<ul>
+<li><h4>Achieved <span style="color: cyan">1st position </span>in project making competition.</h4></li>
+<li><h4>Achieved <span style="color: cyan">1st position </span>in project presentation competition.</h4></li>
+<li><h4>Achieved <span style="color: cyan">2nd position </span>in intra-college coding competition.</h4></li>
+<li><h4><span style="color: cyan;">Patent published</span> on “Microcontroller based smart home automation with power 
+  conservation system including with remote monitoring facilities”</h4></li>
+<li><h4><span style="color: cyan;">Paper published</span> on “Microcontroller based smart home automation with power 
+    conservation system including with remote monitoring facilities"</h4></li>
+<li><h4><span style="color: cyan;">Patent published</span> on “Smart Irrigation System with Automated Regulation of Valves”</h4></li>
+</ul>
+</div>
+</div>
+<div class="mySlides fade">
+<div class="numbertext">
+<ul>
+<li><h4>Coursera <span style="color: cyan">Programming for everybody (Getting started with Python)</span> </h4> </li>
+<li><h4>Coursera <span style="color: cyan">Object Oriented Programming in Java</span></h4></li>
+<li><h4>Coursera <span style="color: cyan">Supervised Machine Learning:Classification & Regression</span></h4></li>
+<li><h4>Coursera <span style="color: cyan">Databases and SQL for Data Sciences with Python</span></h4></li>
+<li><h4>Coursera <span style="color: cyan">Introduction to Data Analysis using Excel</span></h4></li>
+<li><h4>Celonis <span style="color: cyan">Academic  Process Mining Fundamentals</span></h4></li>
+<li><h4>Celonis<span style="color: cyan"> Rising star - business </span></h4></li>
+<li><h4>Celonis <span style="color: cyan">Foundations</span></h4></li>
+<li><h4>Celonis <span style="color: cyan">Execution management consulting programs</span></h4></li>
+<li><h4>Celonis <span style="color: cyan">Deliver Business value</span></h4></li>
+<li><h4>Celonis <span style="color: cyan">Create and deliver demos</span></h4></li>
+<li><h4>AWS Academy <span style="color: cyan">Cloud Foundations </span></h4></li>
+<li><h4>AWS Academy<span style="color: cyan"> Machine Learning Foundations</span></h4></li>
+<li><h4>SS&C Blueprism <span style="color: cyan">Associate Developer </span></h4></li>
+<li><h4>SS&C Blueprism <span style="color: cyan">Process Templates </span></h4></li>
+<li><h4>SS&C Blueprism <span style="color: cyan">Foundation Trainings </span></h4></li>
+<li><h4>SS&C Blueprism <span style="color: cyan">Advance Data Items </span></h4></li>
+<li><h4>SS&C Blueprism <span style="color: cyan">Advance Attribute Matching </span></h4></li>
+<li><h4>SS&C Blueprism <span style="color: cyan">Associate Developers Next Steps</span></h4></li>
+<li><h4>Google Digital Garage <span style="color: cyan">Fundamentals of Digital marketing</span></h4></li>
+</ul>
+</div>
+</div>
+<div class="mySlides fade">
+<div class="numbertext">
+<ul>
+<li>
+<h3>Celonis</h3>
+<h4>Process mining virtual internship,<span style="color: cyan">Dec - Feb 2023</span></h4>
+</li>
+<li>
+  <h3>Oasis Infobyte</h3>
+<h4>Frontend web development virtual internship,<span style="color: cyan">April - May 2023</span></h4>
+</li>
+<li>
+  <h3>Amazon Web Services</h3>
+  <h4>AI-ML virtual internship,<span style="color: cyan">May - July 2023</span></h4>
+</li>
+<li>
+  <h3>Palo Alto</h3>
+  <h4>Cybersecurity virtual internship,<span style="color: cyan">September - November 2023</span></h4>
+</li>
+<li>
+<h3>SS&C blueprism</h3>
+<h4>Intelligent automation virtual internship,<span style="color: cyan">January - March 2024</span></h4>
+</li>
+<li>
+<h3>Celonis</h3>
+<h4>Buisness Analyst virtual internship,<span style="color: cyan">April - June 2024</span></h4>
+</li>
+</ul>
+</div>
+</div>
+<div class="mySlides fade">
+<div class="numbertext">
+<ul>
+<li>
+<h4>My Hobbies include <span style="color: cyan">playing cricket, drawing sketches <span style="color: white;">and</span> mobile photography.</span></h4>
+</li>
+<li>
+<h4>I have interest in <span style="color: cyan">Robotics <span style="color: white;">and</span> Automobile industry</span></h4>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="project"></div>
+<br>
+<br>
+<br>
+<h1 style="text-align: center;">My <span style="color: cyan;">Projects</span></h1>
+<div class="project">
+<div class="projectbox">
+<img src="images/hardware.jpg" height="200px" width="300px" class="proimg">
+<h3>Navigation for blind person using smart cap</h3>
+<p>This model is a simple and easy-to-use device that blind individuals can easily access, given its low cost, simplicity, and accessibility. The prototype has undergone testing and is estimated to be around. A precision of 95% in detecting objects. The preview of this paper does not contain any details about the extensive testing that the prototype underwent, but rather concentrates on its design. </p>
+
+</div>
+<div class="projectbox">
+<img src="images/home.jpg" height="200px" width="300px" class="proimg">
+<h3>Microcontroller based smart home automation</h3>
+<p>The system assembled here is a fairly simple system. We are using two ultrasonic sensors here in
+order to detect people going in and out of the room. Thus, when the room is empty, the lights and
+other appliances will be switched off in the room. The PIR sensor is present to detect any
+movements in the room. These values from the sensors will be sent to the ESP32 microcontroller
+which will act as the server here. The ESP32 will host a website which will be available at our
+devices.</p>
+
+</div>
+<div class="projectbox">
+<img src="images/irr.jpg" height="200px" width="300px" class="proimg">
+<h3>Smart irrigation system with remote monitoring facilities</h3>
+<p>Smart irrigation systems offer a variety of advantages over traditional irrigation systems. Smart irrigation systems can optimize water levels based on things such as soil moisture and weather predictions. This is done with wireless moisture sensors that communicate with the smart irrigation controls and help inform the system whether or not the landscape is in need of water. 
+</p>
+
+</div>
+<div class="projectbox">
+<img src="images/car.jpg" height="200px" width="300px" class="proimg">
+<h3>Wifi controlled car with real time video streaming</h3>
+<p>This vehicle has a spy camera that can be operated using a
+mobile device connection. From a single location. We may
+watch live on our mobile devices. The motor driver for this vehicle is an
+Arduino Uno. The esp32 camera module serves as a bridge
+between Mobile device and a car by live Streaming the
+software we created for this project, which acts as a virtual
+joystick for controlling the car from a mobile device.</p>
+
+</div>
+<div class="projectbox">
+<img src="images/mouse.png" height="200px" width="300px" class="proimg">
+<h3>Virtual mouse <br>using OpenCV</h3>
+<p>AI virtual mouse using hand gestures is an innovative and exciting technology that has the potential to revolutionize the way we interact with computers. Here with the aid of a real-time camera, we have created a system to manage the mouse pointer and carry out its function.It offers users a more natural, intuitive, and accessible way to control the cursor on the screen, without the need for a traditional input device, a mouse. </p>
+
+</div>
+<div class="projectbox">
+<img src="images/ml.png" height="200px" width="300px" class="proimg">
+<h3>Breast Cancer Classification & Detection</h3>
+<p>The objective of using machine learning for breast cancer prediction is to develop predictive models that can accurately classify patients into different risk categories based on their likelihood of developing breast cancer. This involves leveraging machine learning algorithms to analyze diverse datasets containing features such as demographic information, medical history, genetic markers, imaging results, and lifestyle factors.</p>
+
+</div>
+<div class="projectbox">
+<img src="images/dusbin.jpg" height="160px" width="300px" class="proimg">
+<h3>Contactless Dustbin</h3>
+<p>Here we are going to make an evolution changes toward cleanliness. The combination of intelligent waste monitoring and trash compaction technologies, smart dustbins are better and shoulders above traditional garbage dustbin. It is equipped with smart devices like ESP32, Ultrasonic sensor ,Infrared Sensor etc. Lid of the dustbin will automatically open when an object comes near to the dustbin and after certain time period it will close the lid. 
+</p>
+
+</div>
+<div class="projectbox">
+<img src="images/amazon.png"  width="300px" class="proimg">
+<h3>Amazon Clone</h3>
+<p>I have developed an eCommerce website using by HTML, CSS, & JAVASCRIPT. First of all, we have our landing page with banner section, some featured categories images, then some featured products. Then, there will be more latest products, and one offer section with exclusive product. After that there will be testimonials and top brands section. At the bottom of website we will make footer with 4 columns.</p>
+
+</div>
+<div class="projectbox">
+<img src="images/password.png"  width="300px" class="proimg">
+<h3>Password Generator</h3>
+<p>Every person using different online services is concerned with the security and privacy for protecting individual information from the intruders. Many authentication systems are available for the protection of individuals' data, and the password authentication system is one of them.I have developed a password generator website using by HTML, CSS, & JAVASCRIPT.You can generate multiple passwords and copy it</p>
+
+</div>
+</div>
+<div id="skills"> </div>
+<br><br><br>
+<h1 style="text-align: center;">My <span style="color: cyan;">Skills</span></h1>
+<div class="skill-menu">
+<ul>
+<span class="dotz" onclick="curslide(1)">Programming languages</span>
+<span class="dotz" onclick="curslide(2)">Technical skills</span>
+<span class="dotz" onclick="curslide(3)">Others</span>
+<span class="dotz" onclick="curslide(4)">Operating systems</span>
+</ul>
+</div>
+<div class="skill-slide-container">
+<div class="skill-slide fade">
+<div class="skills">
+<div class="skill">
+<div class="skill-name">Java</div>
+<div class="skill-bar">
+<div class="skill-per" per="90%" style="max-width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">C</div>
+<div class="skill-bar">
+<div class="skill-per" per="80%" style="max-width:80%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">python</div>
+<div class="skill-bar">
+<div class="skill-per" per="75%" style="max-width:75%"></div>
+</div>
+</div>          
+</div>
+</div>
+<div class="skill-slide fade">
+<div class="skills">
+<div class="skill">
+<div class="skill-name">HTML</div>
+<div class="skill-bar">
+<div class="skill-per" per="95%" style="max-width:95%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">CSS</div>
+<div class="skill-bar">
+<div class="skill-per" per="90%" style="max-width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">Javascript</div>
+<div class="skill-bar">
+<div class="skill-per" per="70%" style="max-width:70%"></div>
+</div>
+</div>   
+<div class="skill">
+<div class="skill-name">Bootstrap</div>
+<div class="skill-bar">
+<div class="skill-per" per="90%" style="max-width:90%"></div>
+</div>
+</div> 
+<div class="skill">
+<div class="skill-name">sql</div>
+<div class="skill-bar">
+<div class="skill-per" per="70%" style="max-width:70%"></div>
+</div>
+</div>               
+</div>
+</div>
+<div class="skill-slide fade">
+<div class="skills">
+<div class="skill">
+<div class="skill-name">opencv</div>
+<div class="skill-bar">
+<div class="skill-per" per="70%" style="max-width:70%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">pyautogui</div>
+<div class="skill-bar">
+<div class="skill-per" per="80%" style="max-width:80%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">arduino</div>
+<div class="skill-bar">
+<div class="skill-per" per="75%" style="max-width:75%"></div>
+</div>
+</div>          
+
+<div class="skill">
+<div class="skill-name">ms word</div>
+<div class="skill-bar">
+<div class="skill-per" per="100%" style="max-width:100%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">ms powerpoint</div>
+<div class="skill-bar">
+<div class="skill-per" per="100%" style="max-width:100%"></div>
+</div>
+</div>          
+</div>
+</div>
+<div class="skill-slide fade">
+<div class="skills">
+<div class="skill">
+<div class="skill-name">Windows</div>
+<div class="skill-bar">
+<div class="skill-per" per="100%" style="max-width:100%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">linux</div>
+<div class="skill-bar">
+<div class="skill-per" per="50%" style="max-width:50%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">raspberry pi os</div>
+<div class="skill-bar">
+<div class="skill-per" per="30%" style="max-width:30%"></div>
+</div>
+</div>          
+</div>
+</div>
+</div>
+<div class="services" id="services" style="padding-top: 90px; margin-top: 40px;">
+<h1 style="text-align: center;">My <span style="color: aqua;">Services</span></h1>
+<div class="service-cont">
+<div class="service">
+<div class="ser-icon">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAYpJREFUSEvlloFNwzAQRf9tUjZpJwEmASahm9BOApsc+dE5sh37bCeICGGpqtQmfvfvf18iOGjJQVz8XbCqPgH44kdE+N21ditWVTXSm4i8dlGBfa1W1ROAzyPAVPhi4IuI3H5LcQDT34deKK/b5bGqfgA4T5+biFx+FKyq3PicB6fmr6q+A7iLyNUrxFUcKeIeSWqtICrmmv21o0XwfD2Aa+2IFcGmhhtQLRfP53McnukULcGSqR28yIrhfUw7F8PG+1bnewXOlMw3l/yLupEEy4pmJwKcUHYkgSfgXqipcweHec2pFhaVL74v4MyfxbdSQHoHh9nxGKlf4B44qTAuIPY3BKtSIDMSApgENG81AxNXWExmBK4OjuxErDpYC5ebTG9w9JwIVuEdp2IyPX9HwtkaIFQekjl7Xhocwd/Me3eMNme1bYYwMkuDoxA8Qt0nVROcp7U2OEqp9n7bAt70xpEXMQTuHRw96kfBm9849ire/MaxCxw9+k6tB32r3UOtbm028v//A38Dxl30HxegVqUAAAAASUVORK5CYII="/>
+</div>
+<h2>UI/UX Design</h2>
+<p>As a skilled web developer, I provide web development services tailored to your business needs from creating responsive and user-friendly websites to developing robust e-commerce platforms. My expertise spans front-end and back-end development, utilizing the latest technologies to deliver websites.</p>
+</div>
+<div class="service">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARNJREFUSEvtloENgjAQRfmb6CayCU6iTqKbyCayyZlveuSopVRaAjE0ISGE3Ov93v0eqpUWVuJW2wGLyMmp0AHollJkkLGDPh2sBtDu4FIK7FKzov+nuESkAfCw9bH4GYsIFaSSNwBXhWeBReTAoH42GtxA+akFUGeDPbOhyx2tlDEo/5uVsQdVXg+fgs4CB6D0c0rOxXc+6vcDeWcXVwDKMyPobmAafxT6U8YhqF4irsgsPApNBsegpoIpd/MJatpmzNuTiktE2H+XktdlEphAB6eERe7oZHCp6zDbQHI3Esv47Foll2ENpp/hYuBSQI0zmOF8MFviVZoY6oavudqZgVpgsT343bCdgb5YihOBVsv4DeCLyx8RSQh+AAAAAElFTkSuQmCC"/>
+<h2>Buisness Consultancy</h2>
+<p>As a seasoned business consultant, I offer a comprehensive suite of services tailored to elevate your business to new heights. With a rich blend of industry expertise and strategic insight, my consultancy focuses on delivering results-driven solutions that address your unique challenges and opportunities.</p>
+</div>
+<div class="service"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAVhJREFUSEvtl+FxwjAMhfU2KZvAJIVJKJNAJ4FNmk3UvpydU4xS25xornf4H4ntT+9FlgxkpYGVuNIEVtU3Edk3BjkAuNTmLoJVdWsWX2sbFe8PP4EOfAbg5q29A6sqlZ07Qb9NZwCfAD7sJA/8JSK0NnLQ/s0iONmbbT2JCG1iEL0OeGt31vaZ4gI8TiyetbrgrX0IfGwlpnkHAIMnJO9TVdwJnE1/gbuSq9VqVWXmn/ht85qnW62qPIKsdDx+Y2IRHgZmzbaK0uYZyp83ALtQxSZ6KhqbgFF6Bw1RnLoTleVSyibwnux1oSHgtAmLPGFlHZ/Za5Mx8huX8EVomGKTMBnOjjMlknfswhQb+L7llhEO7igqPNu5zfZ1p1bIn1jdGsy/sJpnlHeuZ4yNLbfeZY/HpffGUQv0AoDVbhruvTqVSGZkxG2T0KlVZnLTP4manEferwb+Bkj2Iy6a0h2jAAAAAElFTkSuQmCC"/>
+<h2>Project Management</h2>
+<p>As an experienced project manager, I offer comprehensive project management services designed to ensure the successful execution of your initiatives. My approach combines meticulous planning, effective resource allocation, and proactive risk management to deliver projects on time and within budget.</p>
+</div>
+</div>
+</div>
+<div class="contact"><div id="contact"></div>
+<br><br>
+<h1 style="text-align: center; padding-bottom: 30px;" >Contact <span style="color: cyan;">Me</span></h1>
+
+<form action="https://formspree.io/f/movajrod" method="POST">
+<div class="contact-container box-shadow">
+<input type="text" name="name" id="name" placeholder="Full name" class="item" required>
+<input type="email" name="email" id="email" placeholder="Email Adrress" class="item"  required>
+<input type="text" name="phone" id="phone" placeholder="Phone Number" class="item" >
+<input type="text" name="subject" id="subject" placeholder="Subject" class="item" >
+<textarea name="message" id="message" cols="63" rows="5" class="item" placeholder="Your Message"></textarea><br>
+<button type="submit" id="consubbtn">Submit</button>
+</div>
+</form>
+</div>
+<div class="footer">
+&copy Developed by Tushar Ghorui 
+</div>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
